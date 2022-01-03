@@ -3,7 +3,7 @@
 
 ### Install
 Use **python pip** with **miniconda**
-- gti clone
+- git clone
     ```console
     $ git clone https://github.com/miracleexotic/scan-qrcode.git
     $ cd scan-qrcode
