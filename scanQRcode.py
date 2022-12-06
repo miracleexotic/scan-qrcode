@@ -3,15 +3,10 @@ from pyzbar import pyzbar
 from PIL import Image
 from win10toast_click import ToastNotifier
 import pyperclip
-import argparse
+import sys
 
-my_parser = argparse.ArgumentParser(description='image file')
-my_parser.add_argument('Path',
-                       metavar='path',
-                       type=str,
-                       help='the path to file name')
-args = my_parser.parse_args()
-input_path = args.Path
+input_path = sys.argv[1]
+print(sys.argv[1])
 
 data = ""
 
@@ -26,10 +21,15 @@ def scanQRcode():
     global data
     toaster = ToastNotifier()
     try:
+        # image = cv2.imread(input_path)
+
+        # qrCodeDetector = cv2.QRCodeDetector()
+        # decodedText, points, _ = qrCodeDetector.detectAndDecode(image)
 
         decodedText = pyzbar.decode(Image.open(input_path))
 
         data = str(decodedText[0].data).strip("b'")
+        # print(data) 
         toaster.show_toast(
             "QR code", # title
             f'>> {data} \n🖱️ click to copy', # message 
@@ -40,6 +40,8 @@ def scanQRcode():
         ) 
         
     except:
+        # print(e)
+        # print("QR code not detected")
         toaster.show_toast(
             "QR code", # title
             f'❗ Not detected \n🖱️ click to open', # message 

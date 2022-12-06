@@ -37,9 +37,10 @@ $ python /path/to/scan-qrcode/scanQRcode.py /path/to/test/01.png
 4. fill in 
 **Name** : ```QRcode```
 **Command** : ```C:\Windows\System32\wscript.exe```
-**Arguments** : ```\path\to\scan-qrcode\invisible.vbs "\path\to\scan-qrcode\run.bat {0}"```
+**Arguments** : ```\path\to\scan-qrcode\invisible.vbs \path\to\scan-qrcode\run.bat {0}```
 
 **Note** : Edit run.bat with correct path
+
 
 ##### Use greenshot
 1. press **prtsc button**
